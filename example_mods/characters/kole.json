@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"offsets": [91, 23],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Kole Down"
+		},
+		{
+			"offsets": [-10, 52],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Kole Right"
+		},
+		{
+			"offsets": [12, 176],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Kole Up"
+		},
+		{
+			"offsets": [92, 160],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Kole Left"
+		},
+		{
+			"offsets": [0, 122],
+			"indices": [],
+			"fps": 24,
+			"anim": "attack",
+			"loop": false,
+			"name": "Kole Attack"
+		},
+		{
+			"offsets": [0, 162],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "Kole Idle"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/Kole",
+	"position": [0, 0],
+	"healthicon": "kole",
+	"flip_x": false,
+	"healthbar_colors": [252, 138, 49],
+	"camera_position": [0, 0],
+	"sing_duration": 6,
+	"scale": 1,
+	"_editor_isPlayer": false
+}
