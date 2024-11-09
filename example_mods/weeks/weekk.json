@@ -1,0 +1,27 @@
+{
+	"storyName": "Soul Raid",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "mystage",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Steel",
+			"kole",
+			[
+				0,
+				255,
+				160
+			]
+		]
+	],
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"weekName": "Soul Raid",
+	"hiddenUntilUnlocked": false
+}
