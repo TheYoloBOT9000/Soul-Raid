@@ -26,6 +26,7 @@ class MainMenuState extends MusicBeatState
 		'story_mode',
 		'freeplay',
 		//#if MODS_ALLOWED 'mods', #end
+		'gallery',
 		'options',
 		'credits'
 	];
@@ -287,7 +288,8 @@ class MainMenuState extends MusicBeatState
 							case 'achievements':
 								MusicBeatState.switchState(new AchievementsMenuState());
 							#end
-
+							case 'gallery':
+								MusicBeatState.switchState(new GalleryState());
 							case 'credits':
 								MusicBeatState.switchState(new CreditsState());
 							case 'options':
