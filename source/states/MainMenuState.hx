@@ -5,6 +5,7 @@ import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import flixel.addons.display.FlxBackdrop; 
 
 enum MainMenuColumn {
 	LEFT;
@@ -36,8 +37,27 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
+	var checker:FlxBackdrop; 
+
 	override function create()
 	{
+		var yScroll:Float = 0.25;
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.scrollFactor.set(0, yScroll);
+		bg.setGraphicSize(Std.int(bg.width * 1.175));
+		bg.updateHitbox();
+		bg.screenCenter();
+		add(bg);
+		
+		checker = new FlxBackdrop(Paths.image('gridbackground'));
+		//checker.velocity.set(112, 110);
+		checker.updateHitbox();
+		checker.scrollFactor.set(0, 0);
+		checker.alpha = 1;
+		checker.screenCenter(X);
+		add(checker);
+
 		#if MODS_ALLOWED
 		Mods.pushGlobalMods();
 		#end
@@ -49,15 +69,6 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		persistentUpdate = persistentDraw = true;
-
-		var yScroll:Float = 0.25;
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1.175));
-		bg.updateHitbox();
-		bg.screenCenter();
-		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -134,6 +145,9 @@ class MainMenuState extends MusicBeatState
 	var timeNotMoving:Float = 0;
 	override function update(elapsed:Float)
 	{
+		checker.y -= 0.16 / (ClientPrefs.data.framerate / 60);
+        checker.x += .5*(elapsed/(1/120));
+
 		if (FlxG.sound.music.volume < 0.8)
 			FlxG.sound.music.volume = Math.min(FlxG.sound.music.volume + 0.5 * elapsed, 0.8);
 
