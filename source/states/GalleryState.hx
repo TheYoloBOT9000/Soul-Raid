@@ -39,6 +39,7 @@ class GalleryState extends MusicBeatState
     var titleText:FlxText;
     var bars:FlxSprite;
     var backspace:FlxSprite;
+    var checker:FlxBackdrop;
     
     // Customize the image path here
     var imagePath:String = "gallery/";
@@ -49,6 +50,14 @@ class GalleryState extends MusicBeatState
 
         var jsonData:String = File.getContent("assets/shared/images/gallery/gallery.json");
         var imageData:Array<ImageData> = haxe.Json.parse(jsonData);
+
+        checker = new FlxBackdrop(Paths.image('gallery/ui/grid'));
+        //checker.velocity.set(112, 110);
+        checker.updateHitbox();
+        checker.scrollFactor.set(0, 0);
+        checker.alpha = 1;
+        checker.screenCenter(X);
+        add(checker);
 
         imagePaths = [];
         imageDescriptions = [];
@@ -72,14 +81,6 @@ class GalleryState extends MusicBeatState
             newItem.ID = i;
             itemGroup.add(newItem);
         }
-    
-        background = new FlxSprite(10, 50).loadGraphic(Paths.image("gallery/ui/background"));
-        background.screenCenter();
-        add(background);
-
-        bars = new FlxSprite(10, 50).loadGraphic(Paths.image("gallery/ui/bars"));
-        bars.screenCenter();
-        add(bars);
 
         add(itemGroup);
     
@@ -112,6 +113,9 @@ class GalleryState extends MusicBeatState
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
+
+        checker.y -= 0.16 / (ClientPrefs.data.framerate / 60);
+        checker.x += .5*(elapsed/(1/120));
 
         if ((controls.UI_LEFT_P || controls.UI_RIGHT_P) && allowInputs) {
             changeSelection(controls.UI_LEFT_P ? -1 : 1);
