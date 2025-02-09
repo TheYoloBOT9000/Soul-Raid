@@ -54,7 +54,7 @@ class MainMenuState extends MusicBeatState
 		//checker.velocity.set(112, 110);
 		checker.updateHitbox();
 		checker.scrollFactor.set(0, 0);
-		checker.alpha = 1;
+		checker.alpha = .9;
 		checker.screenCenter(X);
 		add(checker);
 
