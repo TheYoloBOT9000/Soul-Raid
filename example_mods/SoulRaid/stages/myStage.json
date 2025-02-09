@@ -7,17 +7,19 @@
 	"girlfriend": [200, 130],
 	"opponent": [-300, 100],
 	"hide_girlfriend": false,
+	"default_gf_scrollfactor": true,
 
-	"camera_boyfriend": [0, 0],
-	"camera_opponent": [0, 0],
+	"camera_boyfriend": [-100, 0],
+	"camera_opponent": [100, 0],
 	"camera_girlfriend": [0, 0],
 	"camera_speed": 1,
 
 	"preload": {
-		"images/stageback": 3,
-		"images/stagefront": 3,
-		"images/stagecurtains": 2,
-		"images/stage_light": 2
+		"KoleBG_assets/office": 3,
+		"KoleBG_assets/buildings1": 3,
+		"KoleBG_assets/buildings2": 3,
+		"KoleBG_assets/skyBack": 2,
+		"KoleBG_assets/addOverlay": 2
 	},
 
 	"_editorMeta": {
