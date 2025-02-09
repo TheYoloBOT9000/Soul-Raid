@@ -402,6 +402,11 @@ class PlayState extends MusicBeatState
 			gfGroup.add(gf);
 		}
 
+		if (stageData.default_gf_scrollfactor)
+		{
+			gfGroup.scrollFactor.set(1,1);
+		}
+
 		dad = new Character(0, 0, SONG.player2);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
