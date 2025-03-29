@@ -120,6 +120,7 @@ class MainMenuState extends MusicBeatState
 		#end
 		#end
 
+		super.create();
 
 		FlxG.camera.follow(camFollow, null, 0.15);
 	}
@@ -244,23 +245,13 @@ class MainMenuState extends MusicBeatState
 			if (controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse))
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
-				selectedSomethin = true;
-				FlxG.mouse.visible = false;
-
-				if (ClientPrefs.data.flashing)
-					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-
-				var item:FlxSprite;
-				var option:String;
-				switch(curColumn)
+				if (optionShit[curSelected] != 'donate')
 				{
-					case CENTER:
-						option = optionShit[curSelected];
-						item = menuItems.members[curSelected];
+					selectedSomethin = true;
+					FlxG.mouse.visible = false;
 
-					case LEFT:
-						option = leftOption;
-						item = leftItem;
+					if (ClientPrefs.data.flashing)
+						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
 					var item:FlxSprite;
 					var option:String;
@@ -307,7 +298,7 @@ class MainMenuState extends MusicBeatState
 								}
 						}
 					});
-					
+
 					for (memb in menuItems)
 					{
 						if(memb == item)
@@ -316,6 +307,7 @@ class MainMenuState extends MusicBeatState
 						FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
 					}
 				}
+				else CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
 			}
 			#if desktop
 			if (controls.justPressed('debug_1'))
