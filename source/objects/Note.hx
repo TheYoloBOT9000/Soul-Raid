@@ -45,6 +45,7 @@ class Note extends FlxSprite
 		'Alt Animation',
 		'Hey!',
 		'Hurt Note',
+		'Attack Note',
 		'GF Sing',
 		'No Animation'
 	];
@@ -218,6 +219,28 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
+				case 'Attack Note':
+						ignoreNote = true;
+						reloadNote('HURTNOTE_assets');
+						//this used to change the note texture to HURTNOTE_assets.png,
+						//but i've changed it to something more optimized with the implementation of RGBPalette:
+
+						// // note colors
+						// rgbShader.r = 0xFF57FF09;
+						// rgbShader.g = 0xFFFF0000;
+						// rgbShader.b = 0xFF990022;
+
+						// // splash data and colors
+						// noteSplashData.r = 0xFFFF0000;
+						// noteSplashData.g = 0xFF57FF09;
+						noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+
+						// gameplay data
+						lowPriority = true;
+						missHealth = isSustainNote ? 0.25 : 0.1;
+						hitCausesMiss = false;
+						hitsound = 'cancelMenu';
+						hitsoundChartEditor = false;
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':

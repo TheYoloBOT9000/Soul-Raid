@@ -3110,6 +3110,12 @@ class PlayState extends MusicBeatState
 			if (guitarHeroSustains && note.isSustainNote) gainHealth = false;
 			if (gainHealth) health += note.hitHealth * healthGain;
 
+			if(note.noteType == 'Attack Note')
+			{
+				dad.playAnim('attack', true);
+				boyfriend.playAnim('dodge', true);
+				// dad.specialAnim = true;
+			}
 		}
 		else //Notes that count as a miss if you hit them (Hurt notes for example)
 		{
